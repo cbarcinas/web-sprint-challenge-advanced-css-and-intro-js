@@ -244,12 +244,12 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(arr){
   let newArr = [];
-  for (let i = 0; i < artists.length; i++ ){
-    if(arr[i].years <=2000 && arr[i].years >=1900){
+  for (let i = 0; i < arr.length; i++ ){
+    if( (arr[i].years < 2000) && (arr[i].years > 1900) ){
       newArr.push(arr[i].name);
     }
-    return newArr;
   }
+  return newArr;
 }
 console.log(get20s(artists));
 
@@ -288,9 +288,19 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(arr){
+    artists.push(arr);
+    return arr;
   }
+
+  addArtist({
+      id: 20,
+      name: "Craig Barcinas", 
+      years: "1994 - 2020",
+      genre: "Web Design", 
+      nationality: "Pacific Islander",
+      bio: "Im bad at this. Send help"
+  });
 
   
 
@@ -301,11 +311,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(arr){
+  let newArr = [];
+  for ( let i = 0; i < arr.length; i++ ){
+    if(arr[i].paintings >= 100){
+      newArr.push(arr[i].name)
+    }
+  }
+  return newArr; // put return outside for loop
 }
 
-
+console.log(lotsOfArt(artists));
 
 
 // 🎨🎨 STRETCH 🎨🎨//
